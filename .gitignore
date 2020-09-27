@@ -1,0 +1,11 @@
+#Editor ignore
+.idea
+
+#Local packages
+package-lock.json
+node_modules
+
+#Environment
+.env
+
+#Common
