@@ -1,0 +1,22 @@
+{
+  "users": {
+    "1": {
+      "id": 1,
+      "first_name": "Viktor",
+      "last_name": "Valentinovich",
+      "email": "biktor12487@gmail.com"
+    },
+    "2": {
+      "id": 2,
+      "first_name": "Oleh",
+      "last_name": "Petrovich",
+      "email": "oleh.petrov@gmail.com"
+    },
+    "3": {
+      "id": 3,
+      "first_name": "Jonh",
+      "last_name": "Smith",
+      "email": "j.smith@gmail.com"
+    }
+  }
+}

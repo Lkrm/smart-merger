@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "camelcase": ["error", { "ignoreDestructuring": true, "properties": "never"}],
+    "linebreak-style": 0,
+    "import/prefer-default-export": 0
+  }
+}
