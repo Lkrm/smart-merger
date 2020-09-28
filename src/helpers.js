@@ -1,8 +1,4 @@
-export const prop = (prop, data) => data[prop];
-
-export const propOr = (or, prop, data) => data.hasOwnProperty(prop) ? data[prop] : or;
-
-const path  = function (arrayPath, data) {
+export const path  = function (arrayPath, data) {
     let result = data;
     for (const prop of arrayPath) {
         if (!result.hasOwnProperty(prop)) return this.or;
@@ -10,8 +6,6 @@ const path  = function (arrayPath, data) {
     }
     return result;
 }
-
-export const pathOr  = (or, arrayPath, data) => path.bind({ or })(arrayPath, data);
 
 export const assocPath = function (arrayPath, data, source) {
     return {
@@ -21,3 +15,9 @@ export const assocPath = function (arrayPath, data, source) {
         }, {})
     }
 }
+
+export const prop = (prop, data) => data[prop];
+
+export const propOr = (or, prop, data) => data.hasOwnProperty(prop) ? data[prop] : or;
+
+export const pathOr  = (or, arrayPath, data) => path.bind({ or })(arrayPath, data);
