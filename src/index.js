@@ -1,9 +1,9 @@
-import merge from './merge';
+import mergeIn from './mergeIn';
 import mergeByPath from './mergeByPath';
 import mergeByProp from './mergeByProp';
 
 export {
-    merge,
+    mergeIn,
     mergeByProp,
     mergeByPath,
 }
