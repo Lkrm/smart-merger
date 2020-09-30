@@ -1,4 +1,4 @@
-import { assocPath, pathOr } from './helpers';
+import {assocPath, curry, pathOr} from "./helpers";
 import data from './data.json';
 
 test('assocPath test', () => {
@@ -37,5 +37,22 @@ test('pathOr test', () => {
             user
         )
     ).toStrictEqual('Oleh');
+
+});
+
+test('curry test', () => {
+    const user = { data: { name: { first_name: "Viktor", last_name: undefined } } };
+    const getNameFromUser = pathOr('Unknown user', ['data', 'name', 'first_name']);
+
+    expect(
+        getNameFromUser(user)
+    ).toBe('Viktor');
+
+    const greaterByAge = curry((minAge, age) => minAge <= age ? 'You are welcome!' : 'Go away');
+    const greaterAdultPeople = greaterByAge(18);
+
+    expect(
+        greaterAdultPeople(22)
+    ).toBe('You are welcome!');
 
 });
