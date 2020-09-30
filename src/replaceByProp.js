@@ -1,3 +1,3 @@
-const replaceByProp = (prop, source, destination) => ({ ...source, [prop]: { ...source[prop], ...destination} });
+const replaceByProp = (prop, source, destination) => ({ ...source, [prop]: destination });
 
 export default replaceByProp;

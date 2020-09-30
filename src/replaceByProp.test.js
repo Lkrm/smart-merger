@@ -1,7 +1,7 @@
 import replaceByProp from './replaceByProp';
 import data from './data.json';
 
-test('replaceIn test default', () => {
+test('replaceByProp test default', () => {
     expect(
         replaceByProp(
             'entities',
