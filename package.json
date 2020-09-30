@@ -22,13 +22,13 @@
     "url": "git remote add origin https://github.com/Lkrm/smart-merge.git"
   },
   "keywords": [
-    "JavaScript",
-    "smart",
+    "clone",
     "merge",
     "data",
     "redux",
-    "smart",
-    "deepmerge"
+    "deepmerge",
+    "json",
+    "object"
   ],
   "author": "Viktor Panasiuk (biktor12487@gmail.com)",
   "license": "ISC",
