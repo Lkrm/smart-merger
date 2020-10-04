@@ -1,5 +1,6 @@
 This is a package consist of helpers for merging js objects.
 Also, you can import redux helpers for merging data in reducers.
+Link to the source code <a href="https://github.com/Lkrm/smart-merger"> https://github.com/Lkrm/smart-merger </a>
 
 # Base functionality: 
 
