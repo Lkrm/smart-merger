@@ -85,4 +85,4 @@ You can find more information about this options here <a href="https://github.co
 - `propOr(or, prop, data)` - get prop or return `or` value
 - `dataAssigneeByType(firstData, secondData)` - merging two arrays or two objects
 
-> All helpers were curried.
+> You can import it from `smart-merger/helpers`. All helpers were curried.
