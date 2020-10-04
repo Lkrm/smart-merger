@@ -33,3 +33,8 @@ export const prop = curry((prop, data) => data[prop]);
 export const propOr = curry((or, prop, data) => data.hasOwnProperty(prop) ? data[prop] : or);
 
 export const pathOr  = curry((or, arrayPath, data) => path.bind({ or })(arrayPath, data));
+
+export const dataAssigneeByType = curry((firstData, secondData) => Array.isArray(firstData) ? [
+    ...firstData,
+    ...secondData
+] : {...firstData, ...secondData});

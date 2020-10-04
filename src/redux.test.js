@@ -1,4 +1,4 @@
-import { mergeIn, mergeByPath, mergeByProp, replaceIn, replaceByPath, replaceByProp } from './redux';
+import { mergeIn, mergeByPath, mergeByProp, replaceIn, replaceByPath, replaceByProp, replaceByFunc } from './redux';
 import data from './data.json';
 
 
@@ -54,4 +54,22 @@ test('Redux replaceByProp test', () => {
     expect(
         reducer(replaceByProp('entities', () => ('WAS RESETED')))
     ).toStrictEqual( { entities: 'WAS RESETED', other: true });
+});
+
+test('Redux replaceByFunc test', () => {
+    const store = { entities: { fruits: { 1: 'Apple', 2: 'Peach' }, other: true },
+    result: [{ fruit: 'Apple'}, 'Apple']};
+    const reducer = (fn) => fn({ payload: { from: 'Apple', to: 'Orange'} }, store);
+    
+    expect(
+        reducer(replaceByFunc(({ payload: { from, to }}) => (source, key, value, currentEntity) => {
+            if (value === from) {
+                if (Array.isArray(currentEntity)) {
+                    return to;
+                }
+                return { [key]: to };
+            }
+        } ))
+    ).toStrictEqual({ entities: { fruits: { 1: 'Orange', 2: 'Peach' }, other: true },
+        result: [{ fruit: 'Orange'}, 'Orange']});
 });
