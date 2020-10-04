@@ -5,11 +5,11 @@ Also, you can import redux helpers for merging data in reducers.
 
 - `mergeIn(source, destination, options?)` - deep merge "destination" in "source"
 
-- `mergeByProp(prop, source, destination)` - deep merge "destination" in "source" by property
+- `mergeByProp(prop, source, destination, options?)` - deep merge "destination" in "source" by property
 
-- `mergeByPath(path<Array>, source, destination)` - deep merge "destination" in "source" by path
+- `mergeByPath(path<Array>, source, destination, options?)` - deep merge "destination" in "source" by path
 
-- `replaceIn(source, destination, options?)` - set "destination" in "source" ( Same as object assignee )
+- `replaceIn(source, destination)` - set "destination" in "source" ( Same as object assignee )
 
 - `replaceByProp(prop, source, destination)` - set "destination" in "source" by property
 
@@ -29,6 +29,14 @@ const newPostsData = mergeByPath(['data', 'entities', 'posts'], postsData, newPo
 ```
 # Redux functionality example (append user to store by path): 
 ```
+import { mergeByPath } from 'smart-merger/redux';
+// handlerActions by redux-actions
+handleActions({
+   SET_USER: mergeByPath(['entities', 'users'], ({ payload: user }, state) => (user))
+}, initialState);
+```
+
+```
 // Reducer
 import { mergeByPath } from 'smart-merger/redux';
 function addUser(state, action){
@@ -38,10 +46,14 @@ if (typeof action.state === 'SET_USER') {
   return state
 }
 ```
-```
-import { mergeByPath } from 'smart-merger/redux';
-// handlerActions by redux-actions
-handleActions({
-   SET_USER: mergeByPath(['entities', 'users'], ({ payload: user }, state) => (user))
-}, initialState);
-```
+
+#Helpers for merging have options
+- `customMerge?: (key: string, options?: Options) => ((x: any, y: any) => any) | undefined;`  - You can change behavior for merging a specific part of your data.
+
+- `arrayMerge?(target: any[], source: any[], options?: Options): any[];` - Change behavior for merging arrays in your data.
+
+- `isMergeableObject?(value: object): boolean;` - You may not want this, if your objects are of special types, and you want to copy the whole object instead of just copying its properties.
+ 
+- `clone?: boolean;` - Defaults to true. If clone is false then child objects will be copied directly instead of being cloned. This was the default behavior
+           
+You can find more information about this options here <a href="https://github.com/TehShrike/deepmerge">deepmerge</a> .

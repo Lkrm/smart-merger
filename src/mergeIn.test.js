@@ -16,8 +16,8 @@ test('mergeIn test with options', () => {
             { result: [1,2,3,4,5] },
             { result: [3,4,5] },
     {
-        arrayMerge: (des, source) => source
+        arrayMerge: (source, des) => des
     }
         )
-    ).toStrictEqual({result: [3,4,5]});
+    ).toStrictEqual({ result: [3,4,5] });
 });

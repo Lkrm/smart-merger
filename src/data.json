@@ -18,5 +18,19 @@
       "last_name": "Smith",
       "email": "j.smith@gmail.com"
     }
-  }
+  },
+  "usersList": [{
+    "id": 1
+  }, {
+    "id": 2
+  }, {
+    "id": 3
+  }],
+  "usersList2": [{
+    "id": 1
+  }, {
+    "id": 2
+  }, {
+    "id": 3
+  }]
 }
